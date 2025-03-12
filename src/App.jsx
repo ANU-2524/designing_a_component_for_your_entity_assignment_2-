@@ -1,12 +1,29 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import ProductCard from './components/ProductCard.jsx';
 import './App.css';
 
-import Productcard from './components/productcard.jsx';
+const products = [
+  {
+    id: 1,
+    name: "Wireless Headphones",
+    price: "$99.99",
+    image: "https://m.media-amazon.com/images/I/6165TeNkpPL._AC_UF1000,1000_QL80_.jpg",
+  },
+  {
+    id: 2,
+    name: "Gaming Headset",
+    price: "$129.99",
+    image: "https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_UY1000_.jpg",
+  },
+  {
+    id: 3,
+    name: "Noise Cancelling Headphones",
+    price: "$199.99",
+    image: "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_UY1000_.jpg",
+  },
+  
+];
 
-function App() {
-  const cards = Array.from({ length: 10 });
+const App = () => {
   const gridStyle = {
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 1fr)',
@@ -16,11 +33,11 @@ function App() {
 
   return (
     <div style={gridStyle}>
-      {cards.map((_, index) => (
-        <Productcard key={index} />
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );
-}
+};
 
 export default App;
